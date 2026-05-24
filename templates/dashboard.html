@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 style="margin-bottom: 25px;">Management Dashboard</h1>
+
+<!-- Hero Section -->
+<div class="hero" style="margin-bottom: 30px;">
+    <div class="hero-text">
+        <h2>Pet Shop ERP Control Center</h2>
+        <p>Monitor inventory, customer records, product sales and grooming services in one system.</p>
+    </div>
+
+</div>
+
+<!-- First Row of Stats -->
+<div class="cards">
+    <div class="card">
+        <h2>{{ customers }}</h2>
+        <p>Total Customers</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ products }}</h2>
+        <p>Inventory Products</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ orders }}</h2>
+        <p>Total Sales</p>
+    </div>
+</div>
+
+<!-- Second Row of Stats -->
+<div class="cards" style="margin-top: 25px;">
+    <div class="card">
+        <h2>{{ grooming_count }}</h2>
+        <p>Grooming Appointments</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ product_sales }}</h2>
+        <p>Product Transactions</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ low_stock }}</h2>
+        <p>Low Stock Alerts</p>
+    </div>
+</div>
+
+<!-- System Info Section -->
+<div class="cards" style="margin-top: 25px;">
+    <div class="card">
+        <h3 style="margin-bottom: 15px;">System Modules</h3>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+            <li>Customer Management</li>
+            <li>Inventory Control</li>
+            <li>Sales Tracking</li>
+            <li>Grooming Scheduling</li>
+        </ul>
+    </div>
+
+    <div class="card" style="grid-column: span 2;">
+        <h3 style="margin-bottom: 15px;">Business Summary</h3>
+        <p style="line-height: 1.8;">
+            The system allows the pet shop manager to monitor product stock,
+            customer records, sales operations and service appointments in one platform.
+        </p>
+    </div>
+</div>
+
+{% endblock %}
