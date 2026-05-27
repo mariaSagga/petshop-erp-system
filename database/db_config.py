@@ -1,13 +1,11 @@
-import psycopg2
+import mysql.connector
+import os
 
 def get_db_connection():
-
-    connection = psycopg2.connect(
-        host="dpg-d8aq85f7f7vs73ddg9f0-a",
-        database="erp_ecommerce",
-        user="petshop_user",
-        password="fOzoicXlrsNZG5fZaEq4Gylvh5KX37Ku",
-        port="5432"
+    connection = mysql.connector.connect(
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
     )
-
     return connection
