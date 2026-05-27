@@ -1,1 +1,72 @@
+{% extends "base.html" %}
 
+{% block content %}
+
+<h1 style="margin-bottom:20px;">Customer Management</h1>
+
+<div class="hero">
+    <div class="hero-text">
+        <h2>Customer Records</h2>
+        <p>Manage customer details, contact information and pet owner records.</p>
+    </div>
+
+
+</div>
+
+<div style="display:grid; grid-template-columns:1fr 2fr; gap:25px;">
+
+    <div>
+        <form method="POST">
+
+            <h3 style="margin-bottom:15px;">Add New Customer</h3>
+
+            <input type="text" name="name" placeholder="Customer Name" required>
+
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="text" name="phone" placeholder="Phone">
+
+            <input type="text" name="address" placeholder="Address">
+
+            <button type="submit">Save Customer</button>
+
+        </form>
+    </div>
+
+    <div>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for c in customers %}
+            <tr>
+
+                <td>{{ c["id"] }}</td>
+                <td>{{ c["name"] }}</td>
+                <td>{{ c["email"] }}</td>
+                <td>{{ c["phone"] }}</td>
+                <td>{{ c["address"] }}</td>
+
+                <td>
+                    <a href="/edit_customer/{{ c['id'] }}" class="btn edit">Edit</a>
+                    <a href="/delete_customer/{{ c['id'] }}" class="btn delete">Delete</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
