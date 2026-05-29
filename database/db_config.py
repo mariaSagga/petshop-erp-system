@@ -1,10 +1,15 @@
-import mysql.connector
 import os
+import mysql.connector
+from urllib.parse import urlparse
+
+url = urlparse(os.getenv("MYSQL_URL"))
 
 db = mysql.connector.connect(
-    host=os.getenv("DB_HOST"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    database=os.getenv("DB_NAME"),
-    port=int(os.getenv("DB_PORT"))
+    host=url.hostname,
+    user=url.username,
+    password=url.password,
+    database=url.path.replace("/", ""),
+    port=url.port
 )
+
+cursor = db.cursor()
